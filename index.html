@@ -4,658 +4,667 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AI-ассистенты для экспертов и бизнеса | Мир интернета</title>
-  <meta name="description" content="AI-ассистенты и автоматизация для экспертов, селлеров, услуг и бизнеса: заявки, продажи, контент, консультации и Telegram-боты." />
+  <meta name="description" content="AI-ассистенты, боты, сайты и автоматизация для экспертов и бизнеса. Помогаю внедрять решения, которые экономят время, усиливают продажи и упрощают работу." />
   <style>
-    :root {
-      --bg: #060606;
-      --bg-soft: #0f0f10;
-      --card: rgba(255,255,255,0.05);
-      --card-strong: rgba(255,255,255,0.07);
-      --line: rgba(255, 215, 100, 0.18);
-      --gold: #d6a53a;
-      --gold-2: #f1d17a;
-      --gold-3: #ffefbe;
-      --text: #ffffff;
-      --muted: #cfcfcf;
-      --shadow: 0 20px 60px rgba(0,0,0,.45);
-      --radius: 24px;
-      --max: 1180px;
+    :root{
+      --bg:#060606;
+      --bg2:#0d0d0f;
+      --card:rgba(255,255,255,.05);
+      --card2:rgba(255,255,255,.07);
+      --line:rgba(255,215,120,.16);
+      --gold:#cfa23a;
+      --gold2:#f1d27d;
+      --gold3:#fff0c3;
+      --text:#ffffff;
+      --muted:#cfcfcf;
+      --muted2:#9f9f9f;
+      --vk:#4C75A3;
+      --vk2:#6e94c3;
+      --shadow:0 20px 60px rgba(0,0,0,.45);
+      --radius:26px;
+      --max:1180px;
     }
 
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      color: var(--text);
-      font-family: Arial, sans-serif;
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Arial,sans-serif;
+      color:var(--text);
       background:
-        radial-gradient(circle at 15% 20%, rgba(214,165,58,.10), transparent 24%),
-        radial-gradient(circle at 85% 0%, rgba(241,209,122,.10), transparent 20%),
-        radial-gradient(circle at 80% 80%, rgba(214,165,58,.08), transparent 24%),
-        linear-gradient(180deg, #0a0a0a 0%, #040404 100%);
-      line-height: 1.5;
-      overflow-x: hidden;
+        radial-gradient(circle at 10% 20%, rgba(207,162,58,.12), transparent 22%),
+        radial-gradient(circle at 88% 5%, rgba(241,210,125,.10), transparent 18%),
+        radial-gradient(circle at 80% 80%, rgba(207,162,58,.08), transparent 24%),
+        linear-gradient(180deg,#090909 0%,#040404 100%);
+      overflow-x:hidden;
+      line-height:1.5;
     }
 
-    a {
-      text-decoration: none;
-      color: inherit;
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      background:
+        radial-gradient(circle at 25% 35%, rgba(241,210,125,.05), transparent 15%),
+        radial-gradient(circle at 70% 20%, rgba(207,162,58,.04), transparent 18%),
+        radial-gradient(circle at 50% 75%, rgba(241,210,125,.04), transparent 18%);
+      animation:floatBg 14s ease-in-out infinite alternate;
+      z-index:0;
     }
 
-    .container {
-      width: min(var(--max), calc(100% - 32px));
-      margin: 0 auto;
+    @keyframes floatBg{
+      0%{transform:translateY(0) scale(1)}
+      100%{transform:translateY(-18px) scale(1.03)}
     }
 
-    .topbar {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      backdrop-filter: blur(12px);
-      background: rgba(6, 6, 6, 0.72);
-      border-bottom: 1px solid rgba(255,255,255,0.06);
+    a{text-decoration:none;color:inherit}
+    img{max-width:100%}
+    .container{
+      width:min(var(--max), calc(100% - 32px));
+      margin:0 auto;
+      position:relative;
+      z-index:1;
     }
 
-    .topbar-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 14px;
-      padding: 14px 0;
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:50;
+      backdrop-filter:blur(12px);
+      background:rgba(6,6,6,.72);
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+    .topbar-inner{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:16px;
+      padding:14px 0;
     }
 
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 12px;
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width:0;
     }
 
-    .logo-mark {
-      width: 44px;
-      height: 44px;
-      border-radius: 14px;
-      position: relative;
+    .logo-mark{
+      width:48px;
+      height:48px;
+      border-radius:15px;
+      position:relative;
       background:
         radial-gradient(circle at 30% 30%, rgba(255,255,255,.18), transparent 30%),
-        linear-gradient(135deg, rgba(214,165,58,.28), rgba(241,209,122,.08));
-      border: 1px solid rgba(241,209,122,.22);
+        linear-gradient(135deg, rgba(207,162,58,.30), rgba(241,210,125,.08));
+      border:1px solid rgba(241,210,125,.22);
       box-shadow:
         0 0 0 1px rgba(255,255,255,.03) inset,
-        0 0 24px rgba(214,165,58,.18);
+        0 0 24px rgba(207,162,58,.18);
+      flex:0 0 auto;
     }
 
     .logo-mark::before,
-    .logo-mark::after {
-      content: "";
-      position: absolute;
-      border-radius: 999px;
-      border: 1px solid rgba(241,209,122,.35);
+    .logo-mark::after{
+      content:"";
+      position:absolute;
+      border-radius:999px;
+      border:1px solid rgba(241,210,125,.35);
+    }
+    .logo-mark::before{inset:9px}
+    .logo-mark::after{inset:15px}
+
+    .logo-text{display:flex;flex-direction:column;line-height:1.05}
+    .logo-title{font-size:20px;font-weight:700;letter-spacing:.4px}
+    .logo-title span{color:var(--gold2)}
+    .logo-sub{
+      font-size:11px;
+      color:#b9b9b9;
+      letter-spacing:.22em;
+      text-transform:uppercase;
+      margin-top:4px;
     }
 
-    .logo-mark::before {
-      inset: 9px;
+    .nav{
+      display:flex;
+      gap:18px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+    .nav a{
+      font-size:14px;
+      color:var(--muted);
+      transition:.25s;
+    }
+    .nav a:hover{color:#fff}
+
+    .header-actions{
+      display:flex;
+      gap:10px;
+      align-items:center;
     }
 
-    .logo-mark::after {
-      inset: 15px;
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:15px 24px;
+      border-radius:999px;
+      font-weight:700;
+      border:1px solid transparent;
+      cursor:pointer;
+      transition:.25s ease;
+      text-align:center;
     }
 
-    .logo-text {
-      display: flex;
-      flex-direction: column;
-      line-height: 1.05;
-    }
-
-    .logo-title {
-      font-size: 20px;
-      font-weight: 700;
-      letter-spacing: .5px;
-    }
-
-    .logo-title span {
-      color: var(--gold-2);
-    }
-
-    .logo-sub {
-      font-size: 11px;
-      color: #b9b9b9;
-      letter-spacing: .22em;
-      text-transform: uppercase;
-      margin-top: 3px;
-    }
-
-    .nav {
-      display: flex;
-      gap: 18px;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-
-    .nav a {
-      font-size: 14px;
-      color: var(--muted);
-      transition: .25s;
-    }
-
-    .nav a:hover {
-      color: #fff;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 15px 24px;
-      border-radius: 999px;
-      font-weight: 700;
-      border: 1px solid transparent;
-      cursor: pointer;
-      transition: .25s ease;
-      text-align: center;
-    }
-
-    .btn-primary {
-      color: #101010;
-      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-2) 100%);
+    .btn-primary{
+      color:#101010;
+      background:linear-gradient(135deg,var(--gold) 0%,var(--gold2) 100%);
       box-shadow:
-        0 10px 28px rgba(214,165,58,.28),
-        0 0 18px rgba(214,165,58,.18);
+        0 10px 28px rgba(207,162,58,.28),
+        0 0 18px rgba(207,162,58,.18);
     }
-
-    .btn-primary:hover {
-      transform: translateY(-2px) scale(1.01);
+    .btn-primary:hover{
+      transform:translateY(-2px) scale(1.01);
       box-shadow:
-        0 14px 36px rgba(214,165,58,.35),
-        0 0 26px rgba(241,209,122,.22);
+        0 14px 36px rgba(207,162,58,.35),
+        0 0 28px rgba(241,210,125,.20);
     }
 
-    .btn-secondary {
-      background: rgba(255,255,255,.03);
-      border-color: rgba(255,255,255,.08);
-      color: #fff;
+    .btn-secondary{
+      background:rgba(255,255,255,.03);
+      border-color:rgba(255,255,255,.08);
+      color:#fff;
+    }
+    .btn-secondary:hover{
+      background:rgba(255,255,255,.08);
+      transform:translateY(-2px);
     }
 
-    .btn-secondary:hover {
-      background: rgba(255,255,255,.08);
-      transform: translateY(-2px);
+    .btn-vk{
+      color:#fff;
+      background:linear-gradient(135deg,var(--vk) 0%,var(--vk2) 100%);
+      box-shadow:0 10px 28px rgba(76,117,163,.28);
+    }
+    .btn-vk:hover{
+      transform:translateY(-2px) scale(1.01);
+      box-shadow:0 14px 34px rgba(76,117,163,.34);
     }
 
-    .hero {
-      position: relative;
-      padding: 82px 0 62px;
+    .pulse{animation:pulseGlow 2.3s infinite ease-in-out}
+    @keyframes pulseGlow{
+      0%,100%{box-shadow:0 0 0 rgba(207,162,58,0),0 0 20px rgba(207,162,58,.10)}
+      50%{box-shadow:0 0 24px rgba(207,162,58,.22),0 0 42px rgba(241,210,125,.10)}
     }
 
-    .hero::before {
-      content: "";
-      position: absolute;
-      top: -120px;
-      right: -120px;
-      width: 340px;
-      height: 340px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(214,165,58,.18), transparent 65%);
-      filter: blur(10px);
-      pointer-events: none;
+    .hero{
+      position:relative;
+      padding:88px 0 72px;
+      overflow:hidden;
+    }
+    .hero::before{
+      content:"";
+      position:absolute;
+      top:-120px;
+      right:-120px;
+      width:380px;
+      height:380px;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(207,162,58,.18), transparent 65%);
+      filter:blur(10px);
+      pointer-events:none;
     }
 
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.05fr .95fr;
-      gap: 28px;
-      align-items: center;
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.07fr .93fr;
+      gap:28px;
+      align-items:center;
     }
 
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 14px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      background: rgba(255,215,100,.06);
-      color: var(--gold-2);
-      font-size: 13px;
-      margin-bottom: 18px;
-      box-shadow: 0 0 18px rgba(214,165,58,.08);
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 14px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:rgba(255,215,120,.06);
+      color:var(--gold2);
+      font-size:13px;
+      margin-bottom:18px;
+      box-shadow:0 0 18px rgba(207,162,58,.08);
     }
 
-    h1 {
-      margin: 0 0 18px;
-      font-size: clamp(38px, 6vw, 70px);
-      line-height: 1.02;
-      letter-spacing: -.03em;
-      max-width: 850px;
+    h1{
+      margin:0 0 18px;
+      font-size:clamp(40px, 6vw, 76px);
+      line-height:1.01;
+      letter-spacing:-.03em;
+      max-width:860px;
     }
 
-    .hero p {
-      margin: 0 0 28px;
-      color: var(--muted);
-      font-size: 19px;
-      max-width: 760px;
+    .hero p{
+      margin:0 0 28px;
+      color:var(--muted);
+      font-size:20px;
+      max-width:760px;
     }
 
-    .hero-cta {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      margin-bottom: 22px;
+    .hero-cta{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-bottom:20px;
     }
 
-    .hero-points {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
+    .hero-points{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
     }
 
-    .point {
-      padding: 10px 14px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.06);
-      color: #ebebeb;
-      font-size: 14px;
+    .point{
+      padding:10px 14px;
+      border-radius:999px;
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.06);
+      color:#ebebeb;
+      font-size:14px;
+      transition:.3s ease;
+    }
+    .point:hover{
+      border-color:rgba(241,210,125,.22);
+      box-shadow:0 0 16px rgba(207,162,58,.12);
+      transform:translateY(-2px);
     }
 
-    .hero-card {
-      position: relative;
-      padding: 24px;
-      border-radius: 30px;
-      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
-      border: 1px solid rgba(255,255,255,.08);
-      box-shadow: var(--shadow);
-      overflow: hidden;
+    .hero-card{
+      position:relative;
+      padding:26px;
+      border-radius:30px;
+      background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
+      border:1px solid rgba(255,255,255,.08);
+      box-shadow:var(--shadow);
+      overflow:hidden;
     }
 
-    .hero-card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
+    .hero-card::before{
+      content:"";
+      position:absolute;
+      inset:0;
       background:
-        radial-gradient(circle at 20% 20%, rgba(241,209,122,.14), transparent 26%),
-        radial-gradient(circle at 80% 80%, rgba(214,165,58,.10), transparent 28%);
-      pointer-events: none;
+        radial-gradient(circle at 20% 20%, rgba(241,210,125,.14), transparent 26%),
+        radial-gradient(circle at 80% 80%, rgba(207,162,58,.10), transparent 28%);
+      pointer-events:none;
     }
 
-    .mini-label {
-      color: var(--gold-2);
-      font-size: 13px;
-      margin-bottom: 12px;
-      position: relative;
-      z-index: 1;
+    .mini-label{
+      color:var(--gold2);
+      font-size:13px;
+      margin-bottom:12px;
+      position:relative;
+      z-index:1;
     }
 
-    .mock-title {
-      font-size: 25px;
-      font-weight: 700;
-      margin-bottom: 10px;
-      position: relative;
-      z-index: 1;
+    .mock-title{
+      font-size:26px;
+      font-weight:700;
+      margin-bottom:10px;
+      position:relative;
+      z-index:1;
     }
 
-    .small {
-      color: var(--muted);
-      font-size: 14px;
-      position: relative;
-      z-index: 1;
+    .small{
+      color:var(--muted);
+      font-size:14px;
+      position:relative;
+      z-index:1;
     }
 
-    .mock-list {
-      margin-top: 18px;
-      display: grid;
-      gap: 12px;
-      position: relative;
-      z-index: 1;
+    .mock-list{
+      margin-top:18px;
+      display:grid;
+      gap:12px;
+      position:relative;
+      z-index:1;
     }
 
-    .mock-item {
-      padding: 14px 16px;
-      border-radius: 16px;
-      background: rgba(255,255,255,.05);
-      border: 1px solid rgba(255,255,255,.07);
-      color: #f1f1f1;
-      transition: .3s ease;
+    .mock-item{
+      padding:14px 16px;
+      border-radius:16px;
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.07);
+      color:#f1f1f1;
+      transition:.3s ease;
+    }
+    .mock-item:hover{
+      transform:translateX(4px);
+      box-shadow:0 0 18px rgba(207,162,58,.12);
+      border-color:rgba(241,210,125,.18);
     }
 
-    .mock-item:hover {
-      transform: translateX(4px);
-      box-shadow: 0 0 18px rgba(214,165,58,.12);
-      border-color: rgba(241,209,122,.18);
+    section{padding:46px 0}
+
+    .section-head{
+      text-align:center;
+      max-width:850px;
+      margin:0 auto 30px;
     }
 
-    section {
-      padding: 42px 0;
+    .section-head h2{
+      margin:0 0 12px;
+      font-size:clamp(30px, 4vw, 46px);
     }
 
-    .section-head {
-      text-align: center;
-      max-width: 820px;
-      margin: 0 auto 28px;
+    .section-head p{
+      margin:0;
+      font-size:18px;
+      color:var(--muted);
     }
 
-    .section-head h2 {
-      margin: 0 0 12px;
-      font-size: clamp(28px, 4vw, 44px);
+    .grid-4,.grid-3,.steps-grid,.faq-grid,.pricing,.contact-grid,.tasks-grid,.trust-grid,.offer-grid{
+      display:grid;
+      gap:18px;
     }
 
-    .section-head p {
-      margin: 0;
-      font-size: 18px;
-      color: var(--muted);
+    .grid-4{grid-template-columns:repeat(4,1fr)}
+    .grid-3{grid-template-columns:repeat(3,1fr)}
+    .steps-grid{grid-template-columns:repeat(3,1fr)}
+    .faq-grid{grid-template-columns:repeat(2,1fr)}
+    .pricing{grid-template-columns:1fr 1fr; align-items:stretch}
+    .contact-grid{grid-template-columns:1fr 1fr}
+    .tasks-grid{grid-template-columns:repeat(2,1fr)}
+    .trust-grid{grid-template-columns:repeat(3,1fr)}
+    .offer-grid{grid-template-columns:1.1fr .9fr}
+
+    .card,.trust-box,.contact-card,.about-box{
+      position:relative;
+      padding:24px;
+      border-radius:var(--radius);
+      background:var(--card);
+      border:1px solid rgba(255,255,255,.07);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+      transition:transform .3s ease, border-color .3s ease, box-shadow .3s ease;
     }
 
-    .grid-4,
-    .grid-3,
-    .steps-grid,
-    .faq-grid,
-    .pricing {
-      display: grid;
-      gap: 18px;
+    .card:hover,.trust-box:hover,.contact-card:hover,.about-box:hover{
+      transform:translateY(-4px);
+      border-color:rgba(241,210,125,.18);
+      box-shadow:0 18px 40px rgba(0,0,0,.45), 0 0 22px rgba(207,162,58,.10);
     }
 
-    .grid-4 {
-      grid-template-columns: repeat(4, 1fr);
+    .card-glow::before,.trust-box::before,.about-box::before,.contact-card::before{
+      content:"";
+      position:absolute;
+      inset:-1px;
+      border-radius:inherit;
+      background:linear-gradient(135deg, rgba(241,210,125,.24), transparent 30%, transparent 70%, rgba(241,210,125,.18));
+      opacity:.6;
+      pointer-events:none;
     }
 
-    .grid-3 {
-      grid-template-columns: repeat(3, 1fr);
+    .icon{
+      width:50px;
+      height:50px;
+      border-radius:15px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      font-size:22px;
+      margin-bottom:14px;
+      background:rgba(207,162,58,.12);
+      border:1px solid rgba(241,210,125,.18);
+      box-shadow:0 0 18px rgba(207,162,58,.10);
+      position:relative;
+      z-index:1;
     }
 
-    .steps-grid {
-      grid-template-columns: repeat(3, 1fr);
+    .card h3,.trust-box h3,.contact-card h3,.about-box h3{
+      margin:0 0 10px;
+      font-size:22px;
+      position:relative;
+      z-index:1;
     }
 
-    .faq-grid {
-      grid-template-columns: repeat(2, 1fr);
+    .card p,.trust-box p,.contact-card p,.about-box p{
+      margin:0;
+      color:var(--muted);
+      font-size:16px;
+      position:relative;
+      z-index:1;
     }
 
-    .pricing {
-      grid-template-columns: 1fr 1fr;
-      align-items: stretch;
+    .highlight{color:var(--gold2)}
+
+    .niches{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:16px;
     }
 
-    .card {
-      position: relative;
-      padding: 22px;
-      border-radius: var(--radius);
-      background: var(--card);
-      border: 1px solid rgba(255,255,255,.07);
-      box-shadow: var(--shadow);
-      overflow: hidden;
-      transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease;
+    .niche-pill{
+      position:relative;
+      padding:18px 16px;
+      border-radius:18px;
+      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border:1px solid rgba(255,255,255,.08);
+      text-align:center;
+      font-weight:700;
+      color:#f8f8f8;
+      overflow:hidden;
+      transition:.35s ease;
+      box-shadow:0 10px 25px rgba(0,0,0,.28);
     }
 
-    .card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(241,209,122,.18);
-      box-shadow: 0 18px 40px rgba(0,0,0,.45), 0 0 22px rgba(214,165,58,.10);
+    .niche-pill::before{
+      content:"";
+      position:absolute;
+      inset:auto -10% -80% -10%;
+      height:130%;
+      background:radial-gradient(circle, rgba(241,210,125,.22), transparent 55%);
+      opacity:.6;
+      transition:.35s ease;
     }
 
-    .card-glow::before {
-      content: "";
-      position: absolute;
-      inset: -1px;
-      border-radius: inherit;
-      background:
-        linear-gradient(135deg, rgba(241,209,122,.24), transparent 30%, transparent 70%, rgba(241,209,122,.18));
-      opacity: .7;
-      pointer-events: none;
+    .niche-pill:hover{
+      transform:translateY(-5px) scale(1.01);
+      border-color:rgba(241,210,125,.25);
+      box-shadow:0 16px 34px rgba(0,0,0,.36), 0 0 26px rgba(207,162,58,.14);
     }
 
-    .icon {
-      width: 50px;
-      height: 50px;
-      border-radius: 15px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 22px;
-      margin-bottom: 14px;
-      background: rgba(214,165,58,.12);
-      border: 1px solid rgba(241,209,122,.18);
-      box-shadow: 0 0 18px rgba(214,165,58,.10);
+    .niche-pill:hover::before{
+      transform:translateY(-18px);
+      opacity:.95;
     }
 
-    .card h3 {
-      margin: 0 0 10px;
-      font-size: 21px;
-      position: relative;
-      z-index: 1;
+    .task-item{
+      padding:16px 18px;
+      border-radius:18px;
+      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border:1px solid rgba(255,255,255,.08);
+      color:#f2f2f2;
+      box-shadow:var(--shadow);
+      transition:.3s ease;
     }
 
-    .card p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 16px;
-      position: relative;
-      z-index: 1;
+    .task-item:hover{
+      transform:translateY(-3px);
+      border-color:rgba(241,210,125,.18);
+      box-shadow:0 18px 40px rgba(0,0,0,.45), 0 0 22px rgba(207,162,58,.10);
     }
 
-    .highlight {
-      color: var(--gold-2);
+    .featured{
+      background:linear-gradient(180deg, rgba(207,162,58,.12), rgba(255,255,255,.05));
+      border:1px solid rgba(241,210,125,.26);
+      box-shadow:var(--shadow), 0 0 26px rgba(207,162,58,.10);
     }
 
-    .niches {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
+    .price{
+      font-size:42px;
+      font-weight:700;
+      color:var(--gold2);
+      margin:10px 0 14px;
     }
 
-    .niche-pill {
-      position: relative;
-      padding: 18px 16px;
-      border-radius: 18px;
-      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
-      border: 1px solid rgba(255,255,255,.08);
-      text-align: center;
-      font-weight: 700;
-      color: #f8f8f8;
-      overflow: hidden;
-      transition: .35s ease;
-      box-shadow: 0 10px 25px rgba(0,0,0,.28);
+    .price-note{
+      color:var(--muted);
+      margin-bottom:18px;
     }
 
-    .niche-pill::before {
-      content: "";
-      position: absolute;
-      inset: auto -10% -80% -10%;
-      height: 130%;
-      background: radial-gradient(circle, rgba(241,209,122,.22), transparent 55%);
-      opacity: .6;
-      transition: .35s ease;
+    .list{
+      display:grid;
+      gap:10px;
+      margin:16px 0 22px;
+      color:#ececec;
     }
 
-    .niche-pill:hover {
-      transform: translateY(-5px) scale(1.01);
-      border-color: rgba(241,209,122,.25);
-      box-shadow:
-        0 16px 34px rgba(0,0,0,.36),
-        0 0 26px rgba(214,165,58,.14);
+    .list div{
+      padding-left:18px;
+      position:relative;
     }
 
-    .niche-pill:hover::before {
-      transform: translateY(-18px);
-      opacity: .95;
+    .list div::before{
+      content:"•";
+      position:absolute;
+      left:0;
+      color:var(--gold2);
     }
 
-    .proof {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
+    .urgency{
+      margin-top:16px;
+      padding:12px 14px;
+      border-radius:14px;
+      background:rgba(255,215,100,.08);
+      border:1px solid rgba(255,215,100,.14);
+      color:#f3e2aa;
+      font-size:14px;
+      font-weight:700;
     }
 
-    .quote {
-      font-size: 20px;
-      font-weight: 700;
-      margin-bottom: 10px;
+    .about-box{
+      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
     }
 
-    .list {
-      display: grid;
-      gap: 10px;
-      margin: 16px 0 22px;
-      color: #ececec;
+    .about-box strong{color:#fff}
+
+    .cta-box{
+      display:grid;
+      grid-template-columns:1.15fr .85fr;
+      gap:20px;
+      align-items:center;
+      padding:30px;
+      border-radius:30px;
+      background:linear-gradient(135deg, rgba(207,162,58,.16), rgba(255,255,255,.04));
+      border:1px solid rgba(241,210,125,.22);
+      box-shadow:var(--shadow);
+      position:relative;
+      overflow:hidden;
     }
 
-    .list div {
-      padding-left: 18px;
-      position: relative;
+    .cta-box::before{
+      content:"";
+      position:absolute;
+      top:-40px;
+      right:-60px;
+      width:220px;
+      height:220px;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(241,210,125,.18), transparent 65%);
+      pointer-events:none;
     }
 
-    .list div::before {
-      content: "•";
-      position: absolute;
-      left: 0;
-      color: var(--gold-2);
+    .cta-box h2{
+      margin:0 0 12px;
+      font-size:clamp(30px,4vw,42px);
     }
 
-    .featured {
-      background: linear-gradient(180deg, rgba(214,165,58,.12), rgba(255,255,255,.05));
-      border: 1px solid rgba(241,209,122,.26);
-      box-shadow:
-        var(--shadow),
-        0 0 26px rgba(214,165,58,.10);
+    .cta-box p{
+      margin:0;
+      color:var(--muted);
+      font-size:18px;
+      max-width:720px;
+      position:relative;
+      z-index:1;
     }
 
-    .price {
-      font-size: 40px;
-      font-weight: 700;
-      color: var(--gold-2);
-      margin: 10px 0 14px;
+    .cta-actions{
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      position:relative;
+      z-index:1;
     }
 
-    .price-note {
-      color: var(--muted);
-      margin-bottom: 18px;
+    .contact-actions{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:18px;
+      position:relative;
+      z-index:1;
     }
 
-    .urgency {
-      margin-top: 16px;
-      padding: 12px 14px;
-      border-radius: 14px;
-      background: rgba(255,215,100,.08);
-      border: 1px solid rgba(255,215,100,.14);
-      color: #f3e2aa;
-      font-size: 14px;
-      font-weight: 700;
+    .sticky-contact{
+      position:fixed;
+      right:18px;
+      bottom:18px;
+      z-index:80;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
     }
 
-    .cta-box {
-      display: grid;
-      grid-template-columns: 1.15fr .85fr;
-      gap: 20px;
-      align-items: center;
-      padding: 30px;
-      border-radius: 30px;
-      background: linear-gradient(135deg, rgba(214,165,58,.16), rgba(255,255,255,.04));
-      border: 1px solid rgba(241,209,122,.22);
-      box-shadow: var(--shadow);
-      position: relative;
-      overflow: hidden;
+    .sticky-btn{
+      min-width:170px;
+      padding:14px 18px;
+      border-radius:999px;
+      box-shadow:0 10px 28px rgba(0,0,0,.35);
+      font-size:14px;
     }
 
-    .cta-box::before {
-      content: "";
-      position: absolute;
-      top: -40px;
-      right: -60px;
-      width: 220px;
-      height: 220px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(241,209,122,.18), transparent 65%);
-      pointer-events: none;
+    .footer{
+      padding:38px 0 60px;
+      color:#a8a8a8;
+      text-align:center;
+      font-size:14px;
     }
 
-    .cta-box h2 {
-      margin: 0 0 12px;
-      font-size: clamp(30px, 4vw, 42px);
+    .reveal{
+      opacity:0;
+      transform:translateY(18px);
+      transition:opacity .7s ease, transform .7s ease;
     }
 
-    .cta-box p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 18px;
-      max-width: 720px;
+    .reveal.visible{
+      opacity:1;
+      transform:translateY(0);
     }
 
-    .cta-actions {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .footer {
-      padding: 38px 0 60px;
-      color: #a8a8a8;
-      text-align: center;
-      font-size: 14px;
-    }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(18px);
-      transition: opacity .7s ease, transform .7s ease;
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .pulse {
-      animation: pulseGlow 2.2s infinite ease-in-out;
-    }
-
-    @keyframes pulseGlow {
-      0%, 100% {
-        box-shadow: 0 0 0 rgba(214,165,58,0), 0 0 20px rgba(214,165,58,.10);
+    @media (max-width:1024px){
+      .hero-grid,.grid-4,.grid-3,.niches,.steps-grid,.faq-grid,.pricing,.contact-grid,.tasks-grid,.trust-grid,.offer-grid,.cta-box{
+        grid-template-columns:1fr;
       }
-      50% {
-        box-shadow: 0 0 24px rgba(214,165,58,.20), 0 0 42px rgba(241,209,122,.10);
-      }
+      .nav{display:none}
+      .header-actions{display:none}
     }
 
-    @media (max-width: 1024px) {
-      .hero-grid,
-      .grid-4,
-      .grid-3,
-      .niches,
-      .proof,
-      .steps-grid,
-      .faq-grid,
-      .pricing,
-      .cta-box {
-        grid-template-columns: 1fr;
+    @media (max-width:640px){
+      .btn,.contact-actions .btn{width:100%}
+      .hero-cta{flex-direction:column}
+      .hero{padding-top:58px}
+      .hero p,.section-head p,.cta-box p{font-size:16px}
+      .sticky-contact{
+        right:12px;
+        left:12px;
+        bottom:12px;
       }
-
-      .nav {
-        display: none;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .btn {
-        width: 100%;
-      }
-
-      .hero-cta {
-        flex-direction: column;
-      }
-
-      .hero {
-        padding-top: 58px;
-      }
-
-      .hero p,
-      .section-head p,
-      .cta-box p {
-        font-size: 16px;
+      .sticky-btn{
+        min-width:0;
+        width:100%;
       }
     }
   </style>
@@ -675,13 +684,15 @@
         <a href="#benefits">Преимущества</a>
         <a href="#niches">Для кого</a>
         <a href="#services">Услуги</a>
-        <a href="#steps">Этапы</a>
-        <a href="#price">Стоимость</a>
+        <a href="#tasks">Задачи</a>
+        <a href="#about">Обо мне</a>
+        <a href="#contacts">Контакты</a>
       </nav>
 
-      <a class="btn btn-primary pulse" href="https://t.me/YOUR_TELEGRAM" target="_blank" rel="noopener noreferrer">
-        Написать в Telegram
-      </a>
+      <div class="header-actions">
+        <a class="btn btn-secondary" href="https://vk.com/gkvadrat" target="_blank" rel="noopener noreferrer">VK</a>
+        <a class="btn btn-primary pulse" href="https://t.me/ValentinaGavrilovich" target="_blank" rel="noopener noreferrer">Telegram</a>
+      </div>
     </div>
   </header>
 
@@ -689,37 +700,34 @@
     <section class="hero">
       <div class="container hero-grid">
         <div class="reveal">
-          <div class="eyebrow">AI-ассистенты, боты и автоматизация под ваш бизнес</div>
+          <div class="eyebrow">AI-ассистенты, боты, сайты и автоматизация под ваш бизнес</div>
 
           <h1>AI-ассистенты для <span class="highlight">экспертов и бизнеса</span></h1>
 
           <p>
-            Помогаю внедрить AI в работу так, чтобы он не просто “что-то писал”, а
+            Помогаю внедрить AI в работу так, чтобы он не просто генерировал текст, а
             <strong>принимал заявки, помогал продавать, отвечал клиентам, создавал контент и экономил ваше время</strong>.
           </p>
 
           <div class="hero-cta">
-            <a class="btn btn-primary" href="https://t.me/YOUR_TELEGRAM" target="_blank" rel="noopener noreferrer">
-              Получить консультацию
-            </a>
-            <a class="btn btn-secondary" href="#services">
-              Посмотреть решения
-            </a>
+            <a class="btn btn-primary" href="https://t.me/ValentinaGavrilovich" target="_blank" rel="noopener noreferrer">Написать в Telegram</a>
+            <a class="btn btn-vk" href="https://vk.com/gkvadrat" target="_blank" rel="noopener noreferrer">Написать в VK</a>
+            <a class="btn btn-secondary" href="#services">Посмотреть решения</a>
           </div>
 
           <div class="hero-points">
             <div class="point">Эксперты</div>
             <div class="point">Селлеры</div>
             <div class="point">Услуги</div>
-            <div class="point">AI-агентство</div>
+            <div class="point">Малый бизнес</div>
             <div class="point">Запуск от 3 дней</div>
           </div>
         </div>
 
         <div class="hero-card reveal">
           <div class="mini-label">Что вы получаете</div>
-          <div class="mock-title">Не просто бота, а инструмент для роста</div>
-          <div class="small">Собираю решение под задачу, нишу и ваш стиль работы</div>
+          <div class="mock-title">Не просто бота, а рабочий инструмент для роста</div>
+          <div class="small">Собираю решение под задачу, нишу и ваш формат работы</div>
 
           <div class="mock-list">
             <div class="mock-item">💬 AI отвечает клиентам и снимает повторяющиеся вопросы</div>
@@ -735,10 +743,7 @@
       <div class="container">
         <div class="section-head reveal">
           <h2>Почему это выгодно уже сейчас</h2>
-          <p>
-            Пока всё делается вручную, теряются сообщения, клиенты, идеи и время.
-            AI-ассистент помогает выстроить более быстрый, понятный и прибыльный процесс.
-          </p>
+          <p>Пока всё делается вручную, теряются сообщения, клиенты, идеи и время. AI-ассистент помогает выстроить более быстрый, понятный и прибыльный процесс.</p>
         </div>
 
         <div class="grid-4">
@@ -772,45 +777,15 @@
     <section id="niches">
       <div class="container">
         <div class="section-head reveal">
-          <h2>Решения под разные ниши</h2>
-          <p>Не шаблон ради шаблона, а подача и функционал под конкретную аудиторию.</p>
+          <h2>Кому подойдёт</h2>
+          <p>Подбираю подачу и решение под конкретную аудиторию, а не по шаблону “для всех”.</p>
         </div>
 
         <div class="niches">
           <div class="niche-pill reveal">Для экспертов</div>
           <div class="niche-pill reveal">Для селлеров</div>
           <div class="niche-pill reveal">Для услуг</div>
-          <div class="niche-pill reveal">Для AI-агентства</div>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="container">
-        <div class="grid-4">
-          <div class="card card-glow reveal">
-            <div class="icon">🎓</div>
-            <h3>Экспертам</h3>
-            <p>AI-ассистент помогает с прогревом, консультациями, ответами клиентам, созданием контента и упаковкой предложений.</p>
-          </div>
-
-          <div class="card card-glow reveal">
-            <div class="icon">📦</div>
-            <h3>Селлерам</h3>
-            <p>Можно ускорить создание описаний, анализировать карточки, отвечать клиентам и автоматизировать часть операционки.</p>
-          </div>
-
-          <div class="card card-glow reveal">
-            <div class="icon">🧾</div>
-            <h3>Услугам</h3>
-            <p>Боты и AI помогают принимать заявки, консультировать, закрывать возражения и не терять тёплых клиентов.</p>
-          </div>
-
-          <div class="card card-glow reveal">
-            <div class="icon">🚀</div>
-            <h3>AI-агентству</h3>
-            <p>Сайт, воронка, Telegram-бот, лид-магнит, прогрев и AI-продукты можно связать в одну систему продаж.</p>
-          </div>
+          <div class="niche-pill reveal">Для малого бизнеса</div>
         </div>
       </div>
     </section>
@@ -819,10 +794,7 @@
       <div class="container">
         <div class="section-head reveal">
           <h2>Что я могу сделать для вас</h2>
-          <p>
-            Подбираю формат под задачу: от базового AI-помощника до полноценного решения,
-            которое усиливает продажи, контент и клиентский путь.
-          </p>
+          <p>Подбираю формат под задачу: от базового AI-помощника до полноценного решения, которое усиливает продажи, контент и клиентский путь.</p>
         </div>
 
         <div class="grid-3">
@@ -834,35 +806,90 @@
 
           <div class="card card-glow reveal">
             <div class="icon">📲</div>
-            <h3>Telegram-бот</h3>
+            <h3>Бот и воронка</h3>
             <p>Для заявок, прогрева, автоворонки, выдачи материалов, общения с клиентами и записи на услугу.</p>
           </div>
 
           <div class="card card-glow reveal">
             <div class="icon">⚙️</div>
             <h3>Связка AI + сайт + продажи</h3>
-            <p>Когда нужен не отдельный бот, а система: сайт, заявки, кнопки, воронка, тексты и автоматизация.</p>
+            <p>Когда нужен не отдельный бот, а система: сайт, кнопки связи, тексты и автоматизация.</p>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="tasks">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2>Примеры задач, которые я могу решить</h2>
+          <p>Даже без большого портфолио уже можно собрать рабочие решения под понятные бизнес-задачи.</p>
+        </div>
+
+        <div class="tasks-grid">
+          <div class="task-item reveal">AI-ассистент для ответов клиентам в переписке</div>
+          <div class="task-item reveal">Бот для заявок в Telegram или VK</div>
+          <div class="task-item reveal">AI-помощник для прогрева и контента</div>
+          <div class="task-item reveal">Решение для эксперта: контент + консультации + заявки</div>
+          <div class="task-item reveal">Помощник для селлера: тексты, идеи, карточки, ответы</div>
+          <div class="task-item reveal">Связка сайт + бот + тексты + воронка</div>
         </div>
       </div>
     </section>
 
     <section>
       <div class="container">
-        <div class="proof">
-          <div class="card card-glow reveal">
-            <div class="quote">“Один AI-ассистент может заменить часы рутины каждую неделю”</div>
-            <div class="small">
-              Это особенно заметно у экспертов и небольших бизнесов, где всё держится на одном человеке.
-            </div>
+        <div class="section-head reveal">
+          <h2>Почему со мной удобно работать</h2>
+          <p>Без выдуманных отзывов и лишнего пафоса. Честный подход, понятная коммуникация и работа под задачу.</p>
+        </div>
+
+        <div class="trust-grid">
+          <div class="trust-box reveal">
+            <h3>Понятно объясняю</h3>
+            <p>Без сложных технических терминов. Даже если вы не разбираетесь в AI, всё будет по-человечески и ясно.</p>
           </div>
 
-          <div class="card card-glow reveal">
-            <div class="quote">“Быстрый ответ и понятная подача часто решают, будет заявка или нет”</div>
-            <div class="small">
-              Поэтому AI полезен не только как помощник, но и как усилитель продаж и коммуникации.
-            </div>
+          <div class="trust-box reveal">
+            <h3>Подбираю под задачу</h3>
+            <p>Не продаю “всё подряд”, а смотрю, что действительно поможет именно вам сейчас.</p>
           </div>
+
+          <div class="trust-box reveal">
+            <h3>Можно начать с малого</h3>
+            <p>Не обязательно сразу делать большую систему. Можно собрать одно рабочее решение и потом расширять.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container offer-grid">
+        <div class="about-box card-glow reveal">
+          <h3>Коротко обо мне</h3>
+          <p>
+            Я помогаю экспертам и бизнесу внедрять AI-ассистентов, ботов, тексты и автоматизацию под реальные задачи.
+            Мне важно не просто <strong>“сделать красиво”</strong>, а собрать решение, которое будет полезно в работе,
+            экономить время и помогать в продажах.
+          </p>
+          <br>
+          <p>
+            Объясняю простым языком, подбираю формат под ситуацию и стараюсь делать так,
+            чтобы AI не усложнял жизнь, а действительно помогал.
+          </p>
+        </div>
+
+        <div class="about-box card-glow reveal">
+          <h3>Честно о старте</h3>
+          <p>
+            Я собираю и расширяю портфолио, поэтому делаю упор на понятные решения, быструю коммуникацию,
+            индивидуальный подход и качественную проработку задачи.
+          </p>
+          <br>
+          <p>
+            Это честнее и сильнее, чем выдуманные кейсы. Для меня важно, чтобы клиент понимал,
+            что именно он получит и как это поможет в работе.
+          </p>
         </div>
       </div>
     </section>
@@ -877,7 +904,7 @@
         <div class="steps-grid">
           <div class="card card-glow reveal">
             <div class="icon">1</div>
-            <h3>Разбор вашей задачи</h3>
+            <h3>Разбор задачи</h3>
             <p>Смотрим, где вы теряете время, клиентов, идеи или деньги, и что можно усилить с помощью AI.</p>
           </div>
 
@@ -890,7 +917,34 @@
           <div class="card card-glow reveal">
             <div class="icon">3</div>
             <h3>Запуск и доработка</h3>
-            <p>Помогаю внедрить, протестировать и довести до удобного рабочего состояния.</p>
+            <p>Помогаю внедрить, протестировать и довести решение до удобного рабочего состояния.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacts">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2>Выберите удобный способ связи</h2>
+          <p>Если Telegram работает нестабильно, можно сразу написать мне в VK.</p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-card card-glow reveal">
+            <h3>Связь в Telegram</h3>
+            <p>Подходит, если удобно быстро обсудить задачу, идею или формат работы.</p>
+            <div class="contact-actions">
+              <a class="btn btn-primary" href="https://t.me/ValentinaGavrilovich" target="_blank" rel="noopener noreferrer">Открыть Telegram</a>
+            </div>
+          </div>
+
+          <div class="contact-card card-glow reveal">
+            <h3>Связь в VK</h3>
+            <p>Хороший вариант, если Telegram замедляется или вашей аудитории удобнее писать во ВКонтакте.</p>
+            <div class="contact-actions">
+              <a class="btn btn-vk" href="https://vk.com/gkvadrat" target="_blank" rel="noopener noreferrer">Открыть VK</a>
+            </div>
           </div>
         </div>
       </div>
@@ -914,28 +968,22 @@
               <div>Понятный старт без перегруза</div>
               <div>Быстрое тестирование идеи</div>
             </div>
-            <a class="btn btn-secondary" href="https://t.me/YOUR_TELEGRAM" target="_blank" rel="noopener noreferrer">
-              Обсудить старт
-            </a>
+            <a class="btn btn-secondary" href="https://vk.com/gkvadrat" target="_blank" rel="noopener noreferrer">Обсудить в VK</a>
           </div>
 
           <div class="card featured reveal">
             <div class="small">Самый частый выбор</div>
             <h3>AI-решение под ключ</h3>
             <div class="price">от 15 000 ₽</div>
-            <div class="price-note">
-              Для тех, кто хочет усилить продажи, ответы клиентам, контент и автоматизацию сразу в одной системе
-            </div>
+            <div class="price-note">Для тех, кто хочет усилить продажи, ответы клиентам, контент и автоматизацию сразу в одной системе</div>
             <div class="list">
               <div>Настройка под вашу нишу</div>
               <div>Продающие тексты и сценарии</div>
-              <div>Telegram, сайт и клиентский путь</div>
+              <div>Telegram, VK, сайт и клиентский путь</div>
               <div>Помощь при запуске</div>
             </div>
-            <a class="btn btn-primary" href="https://t.me/YOUR_TELEGRAM" target="_blank" rel="noopener noreferrer">
-              Получить консультацию
-            </a>
-            <div class="urgency">Сейчас беру ограниченное количество проектов, чтобы качественно доводить каждый до результата</div>
+            <a class="btn btn-primary" href="https://t.me/ValentinaGavrilovich" target="_blank" rel="noopener noreferrer">Получить консультацию</a>
+            <div class="urgency">Беру ограниченное количество проектов, чтобы качественно доводить каждый до результата</div>
           </div>
         </div>
       </div>
@@ -946,19 +994,12 @@
         <div class="cta-box reveal">
           <div>
             <h2>Не знаете, какое решение подойдёт именно вам?</h2>
-            <p>
-              Напишите мне в Telegram. Я помогу понять, что лучше сработает в вашей ситуации:
-              AI-ассистент, Telegram-бот, прогрев, автоворонка, контент-помощник или связка под продажи.
-            </p>
+            <p>Напишите мне в Telegram или VK. Я помогу понять, что лучше сработает в вашей ситуации: AI-ассистент, бот, прогрев, автоворонка, контент-помощник или связка под продажи.</p>
           </div>
 
           <div class="cta-actions">
-            <a class="btn btn-primary pulse" href="https://t.me/YOUR_TELEGRAM" target="_blank" rel="noopener noreferrer">
-              Написать в Telegram
-            </a>
-            <a class="btn btn-secondary" href="#services">
-              Посмотреть услуги
-            </a>
+            <a class="btn btn-primary pulse" href="https://t.me/ValentinaGavrilovich" target="_blank" rel="noopener noreferrer">Написать в Telegram</a>
+            <a class="btn btn-vk" href="https://vk.com/gkvadrat" target="_blank" rel="noopener noreferrer">Написать в VK</a>
           </div>
         </div>
       </div>
@@ -988,31 +1029,32 @@
           </div>
 
           <div class="card card-glow reveal">
-            <h3>Сколько времени занимает запуск?</h3>
-            <p>Зависит от задачи. Базовые решения можно запускать быстро, более сложные — поэтапно.</p>
+            <h3>Если Telegram тормозит?</h3>
+            <p>Можно сразу перейти в VK. Поэтому на сайте специально добавлены оба канала связи.</p>
           </div>
         </div>
       </div>
     </section>
   </main>
 
+  <div class="sticky-contact">
+    <a class="btn btn-primary sticky-btn pulse" href="https://t.me/ValentinaGavrilovich" target="_blank" rel="noopener noreferrer">Telegram</a>
+    <a class="btn btn-vk sticky-btn" href="https://vk.com/gkvadrat" target="_blank" rel="noopener noreferrer">VK</a>
+  </div>
+
   <footer class="footer">
     <div class="container">
-      Мир интернета • AI-ассистенты, сайты и автоматизация • Telegram: @ValentinaGavrilovich
+      Мир интернета • AI-ассистенты, сайты и автоматизация • Telegram: @ValentinaGavrilovich • VK: gkvadrat
     </div>
   </footer>
 
   <script>
     const items = document.querySelectorAll('.reveal');
-
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
+        if (entry.isIntersecting) entry.target.classList.add('visible');
       });
     }, { threshold: 0.12 });
-
     items.forEach(item => observer.observe(item));
   </script>
 </body>
